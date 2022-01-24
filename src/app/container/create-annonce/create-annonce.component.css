@@ -1,0 +1,23 @@
+.container{
+    position: absolute;
+    top:15%
+}
+input{
+    width: 400px;
+}
+form {
+    width: 50%;
+    margin: 0 auto;
+}
+.row{
+    padding: 10px;
+}
+input{
+    width: 550px;
+}
+.card{
+    margin: 10px;
+    width: 800px;
+   position: absolute;
+   right:40%;
+}

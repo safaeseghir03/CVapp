@@ -1,0 +1,70 @@
+.navbar-light .navbar-nav .nav-link{
+   
+    color:var(--secondary-color);
+}
+.navbar-light .navbar-nav .nav-link.active-link{
+    font-weight: bold;
+    color: black;
+    /* border-bottom-style:outset; */
+
+}
+li a {
+    /* display: block; */
+    color: #000;
+    font-weight: bold;
+    /* padding: 8px 0 8px 16px; */
+    text-decoration: none;
+  
+    /* border-radius: 10px 100px / 120px */
+}
+.navbar {
+    /* overflow: hidden; */
+    background-color: rgb(233, 229, 229); 
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 10%;
+    font-size: 18px;
+    justify-content: center;
+    /* overflow:visible; */
+}
+.navbar-brand{
+    font-family: cursive;
+    font-size: 40px;
+    text-shadow: 1px 1px 2px pink, 0 0 1em rgb(91, 128, 182), 0 0 0.2em purple;
+}
+
+ #impo1{
+    position: absolute;
+    left: 60%;
+    justify-content: center;
+}
+#impo2{
+    position: absolute;
+    left: 50%;  
+      
+}
+#impo3{
+    position: absolute;
+    right: 25%;  
+    
+}
+#impo4{
+    position: absolute;
+    right: 10%; 
+} 
+
+.hov{
+    justify-content: center;
+}
+.hov:visited{
+    border-bottom-style:outset;
+  
+}
+/* Change the link color on hover */
+.hov:hover{
+    
+    color: purple;
+    font-size: 20px;
+    /* border-radius: 10px 100px / 120px */
+}

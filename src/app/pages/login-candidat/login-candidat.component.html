@@ -1,0 +1,20 @@
+<app-navbar></app-navbar>
+  <div class="form-container mat-elevation-z5">
+    <h1>Login ("candidat")</h1>
+  <form [formGroup]="loginForm" (ngSubmit)="register()" >
+    
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input type="email" class="form-control"  placeholder="Email address" formControlName="email" id="exampleInputEmail1" aria-describedby="emailHelp" >
+      
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" placeholder="Password" formControlName="password" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="center">
+    <button type="submit" class="btn btn-primary">Submit</button>
+   </div> 
+    <span class="center margin-top">New to our platform? <a class="sign-up-link" role="button" (click)="goToSignupC()" >Sign up!</a></span>
+  </form>
+</div>
