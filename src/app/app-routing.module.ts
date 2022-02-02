@@ -13,6 +13,8 @@ import { CreateCvComponent } from './container/create-cv/create-cv.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { CorRComponent } from './pages/cor-r/cor-r.component';
+import { ManageCandidatComponent } from './container/manage-candidat/manage-candidat.component';
+import { CVComponent } from './container/cv/cv.component';
 
 
 
@@ -30,6 +32,8 @@ const routes: Routes = [
   {path:'About',component:  AboutComponent},
   {path:'contact',component:  ContactComponent},
   {path:'cor-r',component: CorRComponent},
+  {path:'ManageC',component: ManageCandidatComponent},
+  {path:'Cv',component: CVComponent},
 ];
 
 @NgModule({

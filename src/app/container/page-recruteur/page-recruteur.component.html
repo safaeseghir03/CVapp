@@ -1,2 +1,22 @@
 
-<app-nav-rec></app-nav-rec>
+<app-nav-rec></app-nav-rec><br/><br/>
+
+<div class="d-flex justify-content-center " *ngFor="let annonce of dataArray">
+
+  <div class="card" *ngIf="Uid===annonce.UidRec">
+        <div class="card-header "  >
+          {{annonce.NomEntreprise}}
+        </div>
+
+        <div class="card-body">
+            <h5 class="card-title">Date:{{annonce.DateAnnonce}}</h5><br/>  
+            <p class="card-text">{{annonce.Description}}</p><br/>  <br/>
+          <h5 class="card-title">pour le contact : {{annonce.Email}}</h5>
+          
+          <a href="#" class="btn btn-primary">Les candidatures</a>
+        
+        </div>
+
+
+      </div><br/>  <br/>
+    </div>   <br/> 

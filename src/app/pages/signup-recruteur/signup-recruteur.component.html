@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<div class="form-container mat-elevation-z5">
+<!-- <div class="form-container mat-elevation-z5">
     <h1>Signup ("Recruteur")</h1>
   <form #f="ngForm" (ngSubmit)="register(f)" >
     <div class="mb-3">
@@ -29,4 +29,57 @@
     <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Sign Up</button>
    </div>
   </form>
+</div> -->
+
+
+<div class="form-container mat-elevation-z5">
+  <h1>Sign Up a New User!</h1>
+  <form [formGroup]="signUpForm"  #f="ngForm" (ngSubmit)="Register(f)">
+    <mat-form-field>
+      <input matInput name="name" placeholder="Name" formControlName="name" />
+      <mat-error *ngIf="name?.errors?.['required']">
+        Name is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput  name="email"  placeholder="Email address" formControlName="email" />
+      <mat-error *ngIf="email?.errors?.['required']">
+        Email address is required
+      </mat-error>
+      <mat-error *ngIf="email?.errors?.['email']">
+        Please enter a valid email address
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="password"
+        name="password"
+        placeholder="Password"
+        formControlName="password"
+      />
+      <mat-error *ngIf="password?.errors?.['required']">
+        Password is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="password"
+        
+        placeholder="Confirm Password"
+        formControlName="confirmPassword"
+      />
+      <mat-error *ngIf="confirmPassword?.errors?.['required']">
+        Confirm Password is required
+      </mat-error>
+    </mat-form-field>
+    <mat-error *ngIf="signUpForm.errors?.['passwordsDontMatch']">
+        Passwords should match
+    </mat-error>
+    <div class="center margin-top">
+      <button type="submit" mat-raised-button color="primary">Sign Up!</button>
+    </div>
+  </form>
 </div>
+

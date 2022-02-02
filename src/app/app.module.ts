@@ -10,13 +10,15 @@ import { FooterComponent } from './sharepage/footer/footer.component';
 import { LoginRecruteurComponent } from './pages/login-recruteur/login-recruteur.component';
 
 import { AuthentificationService } from 'src/app/services/authentification-service.service';
-
+import { MatSliderModule } from '@angular/material/slider';
 //signup
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { HotToastModule } from '@ngneat/hot-toast';
@@ -40,6 +42,11 @@ import { AboutComponent } from './pages/about/about.component';
 import { CreateCvComponent } from './container/create-cv/create-cv.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { CorRComponent } from './pages/cor-r/cor-r.component';
+import { ManageCandidatComponent } from './container/manage-candidat/manage-candidat.component';
+import { CVComponent } from './container/cv/cv.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -60,11 +67,15 @@ import { CorRComponent } from './pages/cor-r/cor-r.component';
     AboutComponent,
     ContactComponent,
     CorRComponent,
+    ManageCandidatComponent,
+    CVComponent,
     
     
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
+    FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
 
@@ -74,7 +85,8 @@ import { CorRComponent } from './pages/cor-r/cor-r.component';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    ReactiveFormsModule,
+    MatSliderModule,
+    MatSelectModule,
      // 3. Initialize
      AngularFireModule.initializeApp(environment.firebase),
      AngularFirestoreModule, // firestore
@@ -83,10 +95,11 @@ import { CorRComponent } from './pages/cor-r/cor-r.component';
      AngularFireDatabaseModule,
  
     
-    FormsModule,
+   
     HotToastModule.forRoot(),
   ],
   providers: [AuthentificationService],
   bootstrap: [AppComponent]
+  
 })
 export class AppModule { }

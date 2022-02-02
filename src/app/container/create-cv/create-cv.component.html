@@ -1,163 +1,397 @@
+
+
 <app-navcan></app-navcan><br/>
-<!-- <p>candidat works!</p> -->
 <div class="container-fluid">
-    <form >
-      <br/><br/><br/>
-      <div class="row">
-        <div class="col-md-8">
-          <div class="shadow-sm card">
-            <div class="card-body">
-              <h4 class="card-title d-flex align-items-center">Informations personnels</h4>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <input type="text" class="form-control" name="name" placeholder="Nom">
-                  </div><br/>
-                  <div class="form-group">
-                    <input type="text" class="form-control" name="Prénom" placeholder="Prénom">
-                  </div><br/>
-                  <div class="form-group">
-                    <div class="form-group">
-                      <textarea class="form-control" name="address" rows="4" placeholder="Adresse"></textarea>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <input type="date" class="form-control" name="dateN" placeholder="Date de naissance" >
-                    </div><br/>
-                  <div class="form-group">
-                    <input type="text" class="form-control" name="contactNo" placeholder="Numéro de télephone">
-                  </div><br/>
-                  <div class="form-group">
-                    <input type="text" class="form-control" name="emailId" placeholder="Email" >
-                  </div><br/>                 
-                 
-                </div>
+  <!-- <form > -->
+    <!---------------------------info personnel---------------------------------- -->
+    <br/><br/><br/>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="shadow-sm card">
+          <div class="card-body">
+            <h2 class="card-title d-flex align-items-center">Informations personnels</h2>
+            <form [formGroup]="infoPersonnel" (ngSubmit)="onSubmit()">
+            <div class="row">
+              <div class="col-md-6">
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Votre profil</mat-label>
+                  <input matInput formControlName ="profil" placeholder="profil" >
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Votre Nom</mat-label>
+                  <input matInput formControlName ="Nom" placeholder="Nom" >
+                </mat-form-field>
+              
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Votre Prénom</mat-label>
+                  <input matInput formControlName ="Prenom" placeholder="Prénom" >
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Votre adresse</mat-label>
+                  <textarea matInput formControlName ="Addresse" placeholder="Addresse"></textarea>
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Votre Date de naissance</mat-label>
+                  <input matInput type="date" formControlName ="DateN" placeholder="date de naissance" >
+                </mat-form-field>
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Votre Numéro de téléphone</mat-label>
+                    <input matInput  formControlName ="Tele" placeholder="Télé" >
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Votre Email</mat-label>
+                    <input matInput formControlName ="email" placeholder="example@example.com" >
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>petite description sur vous</mat-label>
+                    <textarea matInput formControlName ="CDesc" placeholder="...." rows="3" cols="500"></textarea>
+                  </mat-form-field>               
+                  <!-- <button mat-raised-button color="primary">Enregistrer</button> -->
               </div>
             </div>
+          </form>
           </div>
-  
-          <!-- Skills -->
-          <div class="shadow-sm card">
-            <div class="card-body">
-              <div class="d-flex justify-content-between card-title">
-                <h4 class="d-flex align-items-center">Compétences</h4>
-                <button class="btn btn-primary">+</button>
-              </div>
-              <div class="row">
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <input type="text" class="form-control" 
-                      placeholder="Java / Angular / .Net " >
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-  
-          <!-- Experience -->
-          <div class="shadow-sm card">
-            <div class="card-body">
-              <div class="d-flex justify-content-between card-title">
-                <h4 class="d-flex align-items-center">Expériences</h4>
-                <button class="btn btn-primary" >+</button>
-              </div>
-              <div class="row" >
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Entreprise" >
-                  </div><br/>
-                  <div class="form-group">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Type d'emploi">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <input type="number" class="form-control" placeholder="Expérience en mois">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-  
-          <!-- Education -->
-          <div class="shadow-sm card">
-            <div class="card-body">
-              <div class="d-flex justify-content-between card-title">
-                <h4 class="d-flex align-items-center">Éducation</h4>
-                <button class="btn btn-primary">+</button>
-              </div>
-              <div class="row" >
-                <div class="col-md-3">
-                  <div class="form-group">
-                    <select class="form-control" placeholder="Diplôme" >
-                      <option >d</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-md-3">
-                  <div class="form-group">
-                    <input type="text" class="form-control" 
-                      placeholder="École" >
-                  </div>
-                </div>
-                <div class="col-md-3">
-                  <div class="form-group">
-                    <input type="number" class="form-control" placeholder="Année" >
-                  </div>
-                </div>
-                <div class="col-md-3">
-                  <div class="form-group">
-                    <input type="number" class="form-control" placeholder="Mention" >
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-  
-          <!-- Other Details -->
-  
-          <!-- <div class="shadow-sm card">
-            <div class="card-body">
-              <h4 class="card-title d-flex align-items-center">Autres détails</h4>
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <textarea type="text" class="form-control"  name="Autresdétails" rows="4"></textarea>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> -->
         </div>
-  
-        <div class="col-md-4">
-          <div class="shadow-sm card action-buttons">
-            <button 
-              class="btn btn-primary d-flex align-items-center justify-content-center">
-              <span>Ouvrir PDF</span></button><br/>
-            <button class="btn btn-primary d-flex align-items-center justify-content-center">
-              <span>Télecharger PDF</span></button>
-            <!-- <button 
-              class="btn btn-primary d-flex align-items-center justify-content-center">
-             <span>Print PDF</span></button> -->
-  
-            <!-- <button type='reset'
-              class="btn btn-primary d-flex align-items-center justify-content-center">
-              <span>Reset</span></button> -->
-          </div><br/>
-  
-          <div class="card p-4">
-            <div class="form-group">
-              <label class="h4 mb-3" for="">Ajouter une photo à votre CV</label>
-              <input type="file" class="form-control-file" >
-            </div>
-            <img class="img-thumbnail">
+      
+  <!-------------------------------- Skills ------------------------------------->
+  <div class="shadow-sm card">
+    <form [formGroup]="SkillsForm" (ngSubmit)="skillSubmit()">
+    <div class="card-body">
+      <div class="d-flex justify-content-between card-title">
+        <h2 class="d-flex align-items-center">Compétences</h2>
+        <button class="btn btn-primary" (click)="addSkill()" >+</button>
+      </div>
+      <div formArrayName="Skills">
+      <div class="row" *ngFor=" let Skill of SkillsForm.controls.Skills['controls']; index as i" [formGroupName]="i">
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <mat-form-field appearance="fill">
+              <input matInput  formControlName="skill" placeholder="Compétence">
+           </mat-form-field>
           </div>
+        </div>
+        
+        <div class="col-md-3">
+          <div class="form-group">
+            <mat-form-field appearance="fill">
+              <mat-select formControlName="Niveau" placeholder="Niveau ">
+              <mat-option value ="Débutant">Débutant</mat-option>
+              <mat-option value =" Intermédiaire"> Intermédiaire</mat-option>
+              <mat-option value ="Avancé">Avancé</mat-option>
+             </mat-select>
+             </mat-form-field>       
+          </div>
+        </div>
+
+        
+      
+      <div class="col-md-3">
+          <div class="form-group">
+            <mat-icon class="delete-btn" (click)="removeSkill(i)"> delete_forever</mat-icon>       
+          </div>
+        </div>
+      
+      </div>
+    </div>
+
+    <!-- <button mat-raised-button   color="primary">Enregistrer</button>  -->
+    </div>
+  </form>
+  </div>
+    
+        <!-- <div class="shadow-sm card">
+          <form #f="ngForm" (ngSubmit)="onsubmit2()"[formGroup]="form">
+          <div class="card-body">
+
+            <div class="d-flex justify-content-between card-title">
+              <h2 class="d-flex align-items-center">Compétences</h2>
+              <button class="btn btn-primary" (click)="addLesson()" >+</button>
+            </div>
+            <div class="row">
+              <div class="col-md-8"> 
+     
+            <ng-container formArrayName="lessons">
+            <ng-container *ngFor="let lessonForm of lessons.controls; let i=index">
+          <div class="lesson-form-row">
+               <mat-form-field appearance="fill">
+                  <input matInput formControlName="title" placeholder="Lesson title">
+               </mat-form-field>
+       
+       
+           <mat-form-field appearance="fill">
+             <mat-select formControlName="Niveau" placeholder="Niveau ">
+             <mat-option value ="Débutant">Débutant</mat-option>
+             <mat-option value =" Intermédiaire"> Intermédiaire</mat-option>
+             <mat-option value ="Avancé">Avancé</mat-option>
+            </mat-select>
+            </mat-form-field>
+          <mat-icon class="delete-btn" (click)="deleteSkill(i)"> delete_forever</mat-icon>
+        </div>
+        </ng-container>
+        </ng-container>   
+</div>
+</div>
+<button mat-raised-button  color="primary">Enregistrer</button> 
+</div>
+
+
+
+</form>  
+</div> -->
+
+ <!------------------------------Experience --------------------------->
+        <div class="shadow-sm card">
+          <form [formGroup]="experiencesForm" (ngSubmit)="expSubmit()">
+          <div class="card-body">
+            <div class="d-flex justify-content-between card-title">
+              <h2 class="d-flex align-items-center">Expériences</h2>
+              <button class="btn btn-primary" (click)="addExperience()" >+</button>
+            </div>
+            <div formArrayName="experiences">
+            <div class="row" *ngFor=" let experience of experiencesForm.controls.experiences['controls']; index as i" [formGroupName]="i">
+
+              <div class="col-md-3">
+                <div class="form-group">
+                  <mat-form-field appearance="fill">
+                    <input matInput  formControlName="NomEntreprise" placeholder="Entreprise">
+                 </mat-form-field>
+                </div>
+              </div>
+              
+              <div class="col-md-3">
+                <div class="form-group">
+                  <mat-form-field appearance="fill">
+                    <input matInput formControlName="Emploi" placeholder="Type d'emploi">
+                 </mat-form-field>        
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <div class="form-group">
+                  <mat-form-field appearance="fill">
+                    <input matInput type="number" formControlName="NMois" placeholder="Expérience en mois">
+                 </mat-form-field>         
+                </div>
+              </div>
+            
+            <div class="col-md-3">
+                <div class="form-group">
+                  <mat-icon class="delete-btn" (click)="removeExperience(i)"> delete_forever</mat-icon>       
+                </div>
+              </div>
+            
+            </div>
+          </div>
+
+          <!-- <button mat-raised-button   color="primary">Enregistrer</button>  -->
+          </div>
+        </form>
+        </div>
+
+ <!----------------------------- Education ---------------------------------->
+        <div class="shadow-sm card">
+          <form [formGroup]="educationForm" (ngSubmit)="eduSubmit()">
+          <div class="card-body">
+            <div class="d-flex justify-content-between card-title">
+              <h2 class="d-flex align-items-center">Éducation</h2>
+              <button class="btn btn-primary" (click)="addEducation()">+</button>
+            </div>
+            <div formArrayName="educations">
+            <div class="row"  *ngFor=" let education of educationForm.controls.educations['controls']; index as i" [formGroupName]="i" >
+
+              <div class="col-md-3">
+                <div class="form-group">
+                  <mat-form-field appearance="fill">
+                    <input matInput formControlName="Diplome" placeholder="Diplome">
+                 </mat-form-field>
+                </div>
+              </div>
+
+
+              <div class="col-md-3">
+                <div class="form-group">
+                  <mat-form-field appearance="fill">
+                    <input matInput formControlName="Ecole" placeholder="Ecole">
+                    
+                 </mat-form-field>
+                </div>
+              </div>
+              
+              
+              <div class="col-md-3">
+                <div class="form-group">
+                  <mat-form-field appearance="fill">
+                    <input matInput type="number" formControlName="Annee" placeholder="Année">
+                 </mat-form-field>
+                </div>
+              </div>
+              
+              
+              <div class="col-md-3">
+                <div class="form-group">
+                  <mat-form-field appearance="fill">
+                    <input matInput formControlName="Mention" placeholder="Mention">
+                 </mat-form-field>
+                </div>
+              </div>
+              
+              
+              <div class="col-md-3">
+                <div class="form-group">
+                  <mat-icon class="delete-btn" (click)="removeEducation(i)"> delete_forever</mat-icon>
+                </div>
+              </div>
+            
+              </div>
+            </div>
+            <!-- <button mat-raised-button  color="primary">Enregistrer</button>  -->
+          </div>
+          </form>
+        </div>
+ <!------------------------------ langage --------------------------------->
+ <div class="shadow-sm card">
+  <form [formGroup]="languagesForm" (ngSubmit)="lgSubmit()">
+  <div class="card-body">
+    <div class="d-flex justify-content-between card-title">
+      <h2 class="d-flex align-items-center">Langues</h2>
+      <button class="btn btn-primary" (click)="addLangue()" >+</button>
+    </div>
+    <div formArrayName="Langues">
+    <div class="row" *ngFor=" let Langue of languagesForm.controls.Langues['controls']; index as i" [formGroupName]="i">
+
+      <div class="col-md-3">
+        <div class="form-group">
+          <mat-form-field appearance="fill">
+            <input matInput  formControlName="langue" placeholder="Langue">
+         </mat-form-field>
         </div>
       </div>
-    </form>
+      
+      <div class="col-md-3">
+        <div class="form-group">
+          <mat-form-field appearance="fill">
+            <mat-select formControlName="Niveaul" placeholder="Niveau ">
+            <mat-option value ="Débutant">Débutant</mat-option>
+            <mat-option value =" Intermédiaire"> Intermédiaire</mat-option>
+            <mat-option value ="Avancé">Avancé</mat-option>
+           </mat-select>
+           </mat-form-field>       
+        </div>
+      </div>
+
+      
+    
+    <div class="col-md-3">
+        <div class="form-group">
+          <mat-icon class="delete-btn" (click)="removeLangue(i)"> delete_forever</mat-icon>       
+        </div>
+      </div>
+    
+    </div>
   </div>
+
+  <!-- <button mat-raised-button   color="primary">Enregistrer</button>  -->
+  </div>
+</form>
+</div>
+</div>  
+<div class="col-md-4">
+<div class="card p-4">
+  <div class="form-group">
+    <label class="h4 mb-3"  for="">Ajouter une photo à votre CV</label>
+    <input type="file" accept=".jpg,.png"  ng-change="uploadImage(&event)" class="form-control-file" >
+   
+  </div>
+  <img class="img-thumbnail">
+  
+</div><br/><br/><br/>
+<div class="shadow-sm card action-buttons">
+<button mat-raised-button (click)="CVsubmit()"  color="primary">Enregistrer Votre CV</button> </div>
+
+<button mat-raised-button (click)="GoToCV()"   color="primary">Voir Votre CV</button> 
+
+
+
+
+<!-- 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div class="shadow-sm card action-buttons">
+  <button 
+    class="btn btn-primary d-flex align-items-center justify-content-center">
+    <span>Ouvrir PDF</span></button><br/>
+  <button class="btn btn-primary d-flex align-items-center justify-content-center">
+    <span>Télecharger PDF</span></button>
+  </div><br/> -->
+</div>
+
+
+
+      <!-- <div class="col-md-4">
+        <div class="shadow-sm card action-buttons">
+          <button 
+            class="btn btn-primary d-flex align-items-center justify-content-center">
+            <span>Ouvrir PDF</span></button><br/>
+          <button class="btn btn-primary d-flex align-items-center justify-content-center">
+            <span>Télecharger PDF</span></button> -->
+          <!-- <button 
+            class="btn btn-primary d-flex align-items-center justify-content-center">
+           <span>Print PDF</span></button> -->
+
+          <!-- <button type='reset'
+            class="btn btn-primary d-flex align-items-center justify-content-center">
+            <span>Reset</span></button> -->
+    <!-- </div> -->
+
+        <!-- <div class="card p-4">
+          <div class="form-group">
+            <label class="h4 mb-3" for="">Ajouter une photo à votre CV</label>
+            <input type="file" class="form-control-file" >
+          </div>
+          <img class="img-thumbnail">
+        
+        </div> -->
+      </div>
+    </div>
+  <!-- </form> -->
+<!-- </div> -->
+
+
+<!-- <h1>Add course lessons:</h1> -->
+<!-- <div class="add-lessons-form" [formGroup]="form">
+<ng-container formArrayName="lessons">
+  <ng-container *ngFor="let lessonForm of lessons.controls">
+    <div class="lesson-form-row" >
+      <mat-form-field appearance="fill">
+        <input matInput
+         formControlName="title"
+        placeholder="Lesson title">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <input matInput 
+        formControlName="level"
+        placeholder="Lesson ">
+      </mat-form-field>
+      <mat-icon class="delete-btn" > delete_forever</mat-icon>
+    </div>
+  </ng-container>
+</ng-container>
+ 
+  
+  <button mat-mini-fab (click)="addLesson()">
+    <mat-icon class="add_course-btn"></mat-icon>
+  </button>
+  </div>
+
+
+   -->

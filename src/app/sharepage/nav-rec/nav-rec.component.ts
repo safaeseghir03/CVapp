@@ -26,5 +26,8 @@ export class NavRecComponent implements OnInit {
   goCreatoAnnonce(){
     return this.route.navigate(["/create-annonce"]);
   } 
+  goToManageC(){
+    return this.route.navigate(["/ManageC"]);
+  }
 
 }

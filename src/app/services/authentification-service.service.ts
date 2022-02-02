@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth} from '@angular/fire/auth';
 import * as firebase from 'firebase/app';
 import { auth } from 'firebase/app';
-import { from, Observable,switchMap } from 'rxjs';
-
+import { from, Observable } from 'rxjs';
+//import firebase from 'firebase/app';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,8 @@ import { from, Observable,switchMap } from 'rxjs';
 
 export class AuthentificationService {
   
-  User:Observable<any>
+// User:Observable<any>
+User:Observable<any>
  userUid : any;
   constructor(private auth : AngularFireAuth) { 
     this.User= this.auth.user;

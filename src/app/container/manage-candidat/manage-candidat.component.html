@@ -1,0 +1,42 @@
+<app-nav-rec></app-nav-rec><br/><br/>
+
+<div class="top">
+    <br/><br/><br/>    <br/><br/><br/>
+    <h1>Trouve le candidat qui te correspond en repondant à ses questions :</h1>
+    <form [formGroup]="searchForm">
+    <table>
+        
+           <tr>
+           <td id="profile"> <input type="text" class="form-control" formControlName ="profil" placeholder=" son profile ?"></td>
+   
+           <td > <input type="text" class="form-control" formControlName ="Addresse" placeholder="sa ville ?"></td>
+          
+           <td> <button type="submit" (click)="chercher()" class="btn btn-primary">Chercher</button></td>
+    
+          </tr>
+
+        </table>
+  </form></div>
+<div *ngFor="let candidat of dataArray">
+ <div *ngIf="profile===candidat.infoPersonnel.profil"> 
+<div class="bottom" >
+    <div class="container mt-5">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-7">
+                <div class="card p-3 py-4">
+                    <div class="text-center"> <img src="https://i.imgur.com/bDLhJiP.jpg" width="100" class="rounded-circle"> </div>
+                    <div class="text-center mt-3"> <span class="bg-secondary p-1 px-4 rounded text-white">Pro</span>
+                        <h5 class="mt-2 mb-0">{{candidat.infoPersonnel.Nom}}  {{candidat.infoPersonnel.Prenom}}</h5> <span>{{candidat.infoPersonnel.profil}}</span>
+                        <div class="px-4 mt-1">
+                            <p class="fonts">{{candidat.infoPersonnel.CDesc}} </p>
+                        </div>
+                        
+                        <div class="buttons"> <button class="btn btn-outline-primary px-4">Voir le CV</button> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>

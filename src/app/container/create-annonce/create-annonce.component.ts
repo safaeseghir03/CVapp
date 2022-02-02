@@ -36,9 +36,6 @@ successMessage:any;
     } else {
       // No user is signed in.
     }
-
-
-
     let data =f.value
     this.fs.collection("Annonces").add({
       NomEntreprise:data.nomEntre,
