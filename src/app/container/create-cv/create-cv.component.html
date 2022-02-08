@@ -301,12 +301,14 @@
 <div class="col-md-4">
 <div class="card p-4">
   <div class="form-group">
-    <label class="h4 mb-3"  for="">Ajouter une photo à votre CV</label>
-    <input type="file" accept=".jpg,.png"  ng-change="uploadImage(&event)" class="form-control-file" >
-   
+    <label class="h4 mb-3"  for="file">Ajouter une photo à votre CV</label>
+    <input type="file" accept=".jpg,.png"  (change)="uploadImage($event)" class="form-control-file" >
+    <button mat-raised-button (click)="show()"   color="primary">show</button> 
+
   </div>
-  <img class="img-thumbnail">
-  
+  <div *ngIf="percentages | async as pct">
+    <div *ngIf="pct == 100" class="alert alert-success">votre photo est ajouté avec succés</div>
+  <progress id="js-progressbar" [value]="pct" max="100"></progress>
 </div><br/><br/><br/>
 <div class="shadow-sm card action-buttons">
 <button mat-raised-button (click)="CVsubmit()"  color="primary">Enregistrer Votre CV</button> </div>

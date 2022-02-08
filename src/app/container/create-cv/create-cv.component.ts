@@ -25,10 +25,10 @@ export class CreateCvComponent implements OnInit {
   path:any;
   ////////////////////////////////////////////
  
-task:any;
-ref:any;
-Url:any;
-
+  task: AngularFireUploadTask;
+  ref:AngularFireStorageReference;
+  Url:any;
+  percentages:any;
   ///////////////////////////////////////////////////
 infoPersonnel= new FormGroup({
   profil:new FormControl('',Validators.required),
@@ -126,6 +126,7 @@ form=this.fb.group({
       Adresse:data.Addresse,
       Tele:data.Addresse,
       Email:data.Tele,
+      photoP:this.Url,
       UidCan:this.Uid
       
     }).then(()=>{
@@ -340,12 +341,12 @@ this.fs.collection("CV").doc(this.Uid).set({
       Competences:dataskills,
       Education:dataeduc,
       Langues:datalang,
-      
+      photoP:this.Url,
       UidCan:this.Uid,
       
       
     }).then(()=>{
-      this.successMessage='votre annonce a été ajouté avec succés!!';
+      this.successMessage='votre cv est ajouté avec succés!!';
     })
   .catch(() => {
     console.log("error")
@@ -355,23 +356,34 @@ this.fs.collection("CV").doc(this.Uid).set({
 
 
 uploadImage(event:any){
-  const id =Math.random().toString(36).substring(2)
-  const file = event.target.files[0]
-  const task = this.fst.upload(id, file);
-const ref = this.fst.ref(id);
+//  const id =Math.random().toString(36).substring(2)
+//   const file = event.target.files[0]
+//   const task = this.fst.upload(id, file);
+// const ref = this.fst.ref(id);
 
-  //this.task=this.ref.put(event.target.files[0]);
-  this.task.then((data:any)=>{
-    data.ref.getDownloadURL().then((url:any)=>{
-          this.Url=url
-    })
-  })
+//   //this.task=this.ref.put(event.target.files[0]);
+//   this.task.then((data:any)=>{
+//     data.ref.getDownloadURL().then((url:any)=>{
+//           this.Url=url;
+//           console.log(this.Url)
+//     })
+//   }) 
+const id =Math.random().toString(36).substring(2);
+this.ref = this.fst.ref(id);
+this.task = this.ref.put(event.target.files[0]);
+this.percentages=this.task.percentageChanges()
+this.task.then((data)=>{
+  data.ref.getDownloadURL().then(url=>{
+  this.Url=url
   
+})
 
-
+})
 
   }
-
+  show(){
+    console.log(this.Url)
+  }
 GoToCV(){
   return this.route.navigate(["/Cv"])
 }

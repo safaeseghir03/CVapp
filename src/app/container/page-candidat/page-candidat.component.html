@@ -9,7 +9,8 @@
             <h5 class="card-title">Date:{{annonce.DateAnnonce}}</h5><br/>  
             <p class="card-text">{{annonce.Description}}</p><br/>  <br/>
           <h5 class="card-title">pour le contact : {{annonce.Email}}</h5>         
-          <a href="#" class="btn btn-success">Déposer mon CV</a>
+          <button class="btn btn-success" (click)="addC(annonce.id)">Déposer mon CV</button>
+
         </div>
       </div>
     </div> 
