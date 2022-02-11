@@ -55,7 +55,9 @@ p {
     cursor: pointer;
     user-select: none;
     z-index: 10;
-    overflow: hidden
+    overflow: hidden;
+    margin-left: 10px;
+    margin-top: 10px;
 }
 
 .card .backgroundEffect {
@@ -130,7 +132,7 @@ p {
     transition: all ease
 }
 .NE{
-    font-size: 25px;
+    font-size: 22px;
     font-weight: bold;
 }
 
@@ -145,7 +147,7 @@ p {
 }
 
 .card .text-muted {
-    font-size: 19px
+    font-size: 17px
 }
 
 .card:hover .text-muted {
@@ -164,7 +166,7 @@ p {
     background-color: #1b9ce3;
     border-radius: 25px;
     font-size: 18px;
-    border: none
+    
 }
 
 .card:hover .content .btn {

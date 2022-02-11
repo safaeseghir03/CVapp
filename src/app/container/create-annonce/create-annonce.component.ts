@@ -42,6 +42,7 @@ successMessage:any;
       Email:data.email,
       DateAnnonce:data.date,
       Description:data.Description,
+      image:data.image,
       UidRec:this.Uid
       
     }).then(()=>{

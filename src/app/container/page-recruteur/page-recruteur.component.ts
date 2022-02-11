@@ -38,6 +38,7 @@ CvArray:any;
           Email:element.payload.doc.data()['Email'],
           NomEntreprise:element.payload.doc.data()['NomEntreprise'],
           Description:element.payload.doc.data()['Description'],
+          image:element.payload.doc.data()['image'],
           UidRec:element.payload.doc.data()['UidRec'],
         }
 

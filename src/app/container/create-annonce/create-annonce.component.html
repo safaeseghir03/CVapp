@@ -3,6 +3,10 @@
 <div class=" container">
     <form #f="ngForm" (ngSubmit)="addAnnonce(f)"  >
       <div class="form-group">
+        <label for="exampleFormControlInput1">image</label>
+        <input type="" class="form-control" id="exampleFormControlInput1" placeholder="url de votre image" name="image"  #image="ngModel"  ngModel>
+      </div>
+      <div class="form-group">
         <label for="nomEn">Nom d'entrprise</label>
         <input type="email" class="form-control" id="nomEn" placeholder="Nom Entreprise" name="nomEntre" #nomEntre="ngModel"  ngModel>
       </div>
