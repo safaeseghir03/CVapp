@@ -35,11 +35,18 @@ export class ManageCandidatComponent implements OnInit {
       this.dataArray= data.map((element:any) => {
         return{
           infoPersonnel:element.payload.doc.data()['infoPersonnel'],
-          
+          photoP:element.payload.doc.data()['photoP'],
+          UidCan:element.payload.doc.data()['UidCan'],
          
         }
 
       })
     })
   }
+
+  voirCv(UidC:any){
+    console.log(UidC)
+
+  }
+
 }

@@ -54,8 +54,7 @@ export class PageCandidatComponent implements OnInit {
       //   }).catch(() => {
       //     console.log("Error getting document:");
 
-  addC(annonceid:any){
-    
+  
    // console.log(annonceid)
   
     // this.fs.collection("Annonces").ref.doc(annonceid).get().then(data=>{
@@ -73,25 +72,71 @@ export class PageCandidatComponent implements OnInit {
   //       }).catch(() => {
   //         console.log("Error getting document:");
   //       }
-  const ver =this.fs.collection("CvAnnonce").ref.doc(annonceid)
-  if(ver){
-    this.fs.collection("CvAnnonce").doc(annonceid).set({
-          idAnnonce:annonceid,
-          
-          UidCV:[this.Uid],
-          
-          
-        }).then(()=>{
-          this.successMessage='votre annonce a été ajouté avec succés!!';
-        })
-      .catch(() => {
-        console.log("error")
-      });
-  }else{
+
+
+
+
+  addC(annonceid:any){
+    
+
+  const docref =this.fs.collection("CvAnnonce").doc(annonceid);
+  docref.get().subscribe(doc=>{
+  if(doc.exists){
     this.fs.collection("CvAnnonce").ref.doc(annonceid).update({
       UidCV:firebase.firestore.FieldValue.arrayUnion(this.Uid)
-    });
+    })
+   
+  }else{
+    
+    this.fs.collection("CvAnnonce").doc(annonceid).set({
+      idAnnonce:annonceid,
+      
+      UidCV:[this.Uid],
+      
+      
+    }).then(()=>{
+      this.successMessage='votre annonce a été ajouté avec succés!!';
+    })
+  .catch(() => {
+    console.log("error")
+  });
   }
+})
+
+
+
+console.log(annonceid)
+console.log(this.Uid)
+
+
+
+
+
+
+
+
+
+
+
+  // const ver =this.fs.collection("CvAnnonce").ref.doc(annonceid)
+  // if(ver){
+  //   this.fs.collection("CvAnnonce").doc(annonceid).set({
+  //         idAnnonce:annonceid,
+          
+  //         UidCV:[this.Uid],
+          
+          
+  //       }).then(()=>{
+  //         this.successMessage='votre annonce a été ajouté avec succés!!';
+  //       })
+  //     .catch(() => {
+  //       console.log("error")
+  //     });
+  // }else{
+  //   this.fs.collection("CvAnnonce").ref.doc(annonceid).update({
+  //     UidCV:firebase.firestore.FieldValue.arrayUnion(this.Uid)
+  //   });
+  // }
     // this.fs.collection("CvAnnonce").ref.doc(annonceid).update({
     //   UidCV:firebase.firestore.FieldValue.arrayUnion(this.Uid)
     // });
@@ -117,6 +162,6 @@ export class PageCandidatComponent implements OnInit {
   }
 
 
-  }
+}
 
 

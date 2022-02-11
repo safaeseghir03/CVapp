@@ -25,6 +25,7 @@ export class CVComponent implements OnInit {
           infoPersonnel:element.payload.doc.data()['infoPersonnel'],
           Experiences:element.payload.doc.data()['Experiences'],
           Langues:element.payload.doc.data()['Langues'],
+          photoP:element.payload.doc.data()['photoP'],
           UidCan:element.payload.doc.data()['UidCan'],
           
          

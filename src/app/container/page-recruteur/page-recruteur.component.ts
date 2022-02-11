@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import * as firebase from 'firebase';
 import { AuthentificationService } from 'src/app/services/authentification-service.service';
+
 @Component({
   selector: 'app-page-recruteur',
   templateUrl: './page-recruteur.component.html',
@@ -9,7 +10,9 @@ import { AuthentificationService } from 'src/app/services/authentification-servi
 })
 export class PageRecruteurComponent implements OnInit {
 dataArray:any
-Uid:any
+Uid:any;
+CvArray:any;
+  dataArray2:any
   constructor(private fs : AngularFirestore,private as:AuthentificationService) {
    this.as.User.subscribe(user=>{
      this.Uid=user.uid
@@ -44,4 +47,46 @@ Uid:any
   }
   
   
+
+
+  candidatures(annonceid:any){
+
+  console.log(annonceid)
+
+ 
+  const docref =this.fs.collection("CvAnnonce").doc(annonceid);
+  docref.get().subscribe(doc=>{
+    this.CvArray=doc.get('UidCV')
+    console.log(this.CvArray)
+    ////////////////////////
+    this.fs.collection("CV").snapshotChanges().subscribe((data)=>{
+      this.dataArray2= data.map((element:any) => {
+        return{
+          infoPersonnel:element.payload.doc.data()['infoPersonnel'],
+          photoP:element.payload.doc.data()['photoP'],
+          UidCan:element.payload.doc.data()['UidCan'],
+         
+        }
+
+      })
+    })
+  })
+ 
+
+
+
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+
 }
