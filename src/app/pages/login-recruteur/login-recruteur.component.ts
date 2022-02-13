@@ -86,9 +86,9 @@ export class LoginRecruteurComponent implements OnInit {
     const { email,password} = this.loginForm.value;
     return this.authService.login(email, password).pipe(
       this.toast.observe({
-        success: 'Logged in successfully',
-        loading: 'Logging in...',
-        error: ({ message }) => `There was an error: ${message} `
+        success: 'Connecté avec succès',
+        loading: 'Se connecter...',
+        error: ({ message }) => `Il y avait une erreur: ${message} `
       })
     ).subscribe(() =>{
       this.route.navigate(["/page-recruteur"]);

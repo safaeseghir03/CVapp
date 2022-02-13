@@ -24,7 +24,7 @@
          
           <div class="card border-0 me-lg-4 mb-lg-0 mb-5"*ngFor="let annonce of dataArray">
               <div class="backgroundEffect"></div>
-              <div class="pic"> <img class="" src="https://images.pexels.com/photos/374016/pexels-photo-374016.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="">
+              <div class="pic"> <img class="" [src]="annonce.image" alt="">
                   <div class="date"> <span class="day">{{annonce.DateAnnonce}}</span> </div>
               </div>
               <div class="content"><br/>
@@ -32,7 +32,7 @@
                   <p class="text-muted mt-3">{{annonce.Description}}</p>
                   <div class="d-flex align-items-center justify-content-between mt-3 pb-3">
                       
-                      <button class="btn btn-success" (click)="addC(annonce.id)">Déposer mon CV</button>
+                      <button class="btn btn-success" (click)="addC(annonce.id,$event)">Déposer mon CV</button>
 
                   </div>
               </div></div>

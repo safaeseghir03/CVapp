@@ -308,6 +308,7 @@ removeLangue(i:number){
 }
 
 
+
 /////////////////////////////////////////////////////////
 CVsubmit(event: any){
   event.currentTarget.disabled = true

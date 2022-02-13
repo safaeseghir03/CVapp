@@ -35,6 +35,7 @@ export class PageCandidatComponent implements OnInit {
           Email:element.payload.doc.data()['Email'],
           NomEntreprise:element.payload.doc.data()['NomEntreprise'],
           Description:element.payload.doc.data()['Description'],
+          image:element.payload.doc.data()['image'],
         }
 
       })
@@ -76,8 +77,9 @@ export class PageCandidatComponent implements OnInit {
 
 
 
-  addC(annonceid:any){
-    
+  addC(annonceid:any,event:any){
+  event.currentTarget.disabled = true
+  event.target.disabled = true;
 
   const docref =this.fs.collection("CvAnnonce").doc(annonceid);
   docref.get().subscribe(doc=>{

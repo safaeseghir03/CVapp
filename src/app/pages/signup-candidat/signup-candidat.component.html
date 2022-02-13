@@ -32,50 +32,50 @@
   </form>
 </div> -->
 <div class="form-container mat-elevation-z5">
-  <h1>Sign Up a New User!</h1>
+  <h1>Enregistrez un nouvel utilisateur !</h1>
   <form [formGroup]="signUpForm" #f="ngForm" (ngSubmit)="Register(f)">
     <mat-form-field>
-      <input matInput placeholder="Name" formControlName="name" />
+      <input matInput placeholder="Nom" formControlName="name" />
       <mat-error *ngIf="name?.errors?.['required']">
-        Name is required
+        Le nom est obligatoire
       </mat-error>
     </mat-form-field>
     <mat-form-field>
-      <input matInput placeholder="Email address" formControlName="email" />
+      <input matInput placeholder="Email" formControlName="email" />
       <mat-error *ngIf="email?.errors?.['required']">
-        Email address is required
+        Email est obligatoire
       </mat-error>
       <mat-error *ngIf="email?.errors?.['email']">
-        Please enter a valid email address
+        S'il vous plaît, saisissez une adresse email valide
       </mat-error>
     </mat-form-field>
     <mat-form-field>
       <input
         matInput
         type="password"
-        placeholder="Password"
+        placeholder="Mot de passe"
         formControlName="password"
       />
       <mat-error *ngIf="password?.errors?.['required']">
-        Password is required
+         Le mot de passe est obligatoire
       </mat-error>
     </mat-form-field>
     <mat-form-field>
       <input
         matInput
         type="password"
-        placeholder="Confirm Password"
+        placeholder="Confirmez le mot de passe"
         formControlName="confirmPassword"
       />
       <mat-error *ngIf="confirmPassword?.errors?.['required']">
-        Confirm Password is required
+        Confirmer le mot de passe est obligatoire
       </mat-error>
     </mat-form-field>
     <mat-error *ngIf="signUpForm.errors?.['passwordsDontMatch']">
-        Passwords should match
+      Les mots de passe doivent correspondre
     </mat-error>
     <div class="center margin-top">
-      <button type="submit" mat-raised-button color="primary">Sign Up!</button>
+      <button type="submit" mat-raised-button color="primary">S'inscrire!</button>
     </div>
   </form>
 </div> 

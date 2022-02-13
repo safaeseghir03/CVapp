@@ -15,8 +15,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { CorRComponent } from './pages/cor-r/cor-r.component';
 import { ManageCandidatComponent } from './container/manage-candidat/manage-candidat.component';
 import { CVComponent } from './container/cv/cv.component';
-import { Page404Component } from './page404/page404.component';
-
+import { Page404Component } from './container/page404/page404.component';
 
 
 const routes: Routes = [
@@ -36,7 +35,8 @@ const routes: Routes = [
   {path:'ManageC',component: ManageCandidatComponent},
   {path:'Cv/:id',component: CVComponent},
   {path:'Cv',component: CVComponent},
-  {path:'P404',component: Page404Component},
+  {path:'page404',component: Page404Component},
+ 
 ];
 
 @NgModule({
