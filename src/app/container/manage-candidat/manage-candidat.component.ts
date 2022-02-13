@@ -3,6 +3,7 @@ import { AbstractControl,FormArray,FormBuilder,FormControl,FormGroup,ValidationE
 import { AngularFirestore } from '@angular/fire/firestore';
 import * as firebase from 'firebase';
 import { AuthentificationService } from 'src/app/services/authentification-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-manage-candidat',
@@ -20,7 +21,7 @@ export class ManageCandidatComponent implements OnInit {
   Adresse:any;
   profile:any;
   dataArray:any;
-  constructor(private fs : AngularFirestore,private as:AuthentificationService) { }
+  constructor(private fs : AngularFirestore,private as:AuthentificationService,private route:Router) { }
 
   ngOnInit(): void {
   }
@@ -46,7 +47,7 @@ export class ManageCandidatComponent implements OnInit {
 
   voirCv(UidC:any){
     console.log(UidC)
-
+this.route.navigate(['/Cv/'+UidC])
   }
 
 }

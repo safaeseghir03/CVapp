@@ -59,7 +59,8 @@ form=this.fb.group({
         this.fb.group({
          NomEntreprise:[''],
           Emploi:[''],
-          NMois:['']
+          NMois:[''],
+          DescEntr:['']
         })
       ])
     })
@@ -234,7 +235,8 @@ addExperience(){
 let newRows=this.fb.group({
   NomEntreprise:[''],
   Emploi:[''],
-  NMois:['']
+  NMois:[''],
+  DescEntr:['']
 
 })
 this.experiences.push(newRows);
@@ -307,7 +309,9 @@ removeLangue(i:number){
 
 
 /////////////////////////////////////////////////////////
-CVsubmit(){
+CVsubmit(event: any){
+  event.currentTarget.disabled = true
+  event.target.disabled = true;
   var user = firebase.auth().currentUser;
     if (user) {
       this.Uid=user.uid;
@@ -381,11 +385,9 @@ this.task.then((data)=>{
 })
 
   }
-  show(){
-    console.log(this.Url)
-  }
+  
 GoToCV(){
-  return this.route.navigate(["/Cv"])
+  return this.route.navigate(['/Cv/'+this.Uid])
 }
 
 

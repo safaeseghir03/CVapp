@@ -25,9 +25,9 @@ html,body,h1,h2,h3,h4,h5,h6 {
       <div class="w3-white w3-text-grey w3-card-4">
         <div class="w3-display-container">
             <div *ngFor="let annonce of dataArray">
-                <div *ngIf="Uid===annonce.UidCan">
+                <div *ngIf="Uid===annonce.UidCan  || keyParams===annonce.UidCan">
           <img [src]="annonce.photoP" style="width:100%">
-          <div class="w3-display-bottomleft w3-container w3-text-black">
+          <div  class="w3-display-bottomleft w3-container">
             <h2>{{annonce.infoPersonnel.Nom}}  {{annonce.infoPersonnel.Prenom}}</h2>
           </div>
         </div>
@@ -35,7 +35,7 @@ html,body,h1,h2,h3,h4,h5,h6 {
 </div>
         <div class="w3-container">
             <div *ngFor="let annonce of dataArray">
-            <div *ngIf="Uid===annonce.UidCan">
+            <div *ngIf="Uid===annonce.UidCan || keyParams===annonce.UidCan">
           <p class="inf"><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>{{annonce.infoPersonnel.profil}}</p>
           <p class="inf"><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>{{annonce.infoPersonnel.Addresse}}</p>
           <p class="inf"><i class="fa fa-calendar fa-fw w3-margin-right w3-large w3-text-teal"></i>{{annonce.infoPersonnel.DateN}}</p>
@@ -51,7 +51,7 @@ html,body,h1,h2,h3,h4,h5,h6 {
 
           <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Compétences</b></p>
           <div *ngFor="let info of dataArray">
-            <div *ngIf="Uid===info.UidCan">
+            <div *ngIf="Uid===info.UidCan || keyParams===info.UidCan">
         
               <div *ngFor="let in of info.Competences.Skills">
           <p>{{in.skill}} </p>
@@ -67,7 +67,7 @@ html,body,h1,h2,h3,h4,h5,h6 {
       
           <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Langues</b></p>
           <div *ngFor="let info of dataArray">
-            <div *ngIf="Uid===info.UidCan">
+            <div *ngIf="Uid===info.UidCan || keyParams===info.UidCan">
              <div *ngFor="let in of info.Langues.Langues">
           <p>{{in.langue}}</p>
           <div class="w3-light-grey w3-round-xlarge">
@@ -87,10 +87,12 @@ html,body,h1,h2,h3,h4,h5,h6 {
     <div class="w3-twothird">
     
         <div *ngFor="let annonce of dataArray">
-            <div *ngIf="Uid===annonce.UidCan">
+            <div *ngIf="Uid===annonce.UidCan || keyParams===annonce.UidCan">
+            
         <div class="w3-container w3-card w3-white w3-margin-bottom">
-            <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-smile fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>A propos de moi :</h2>
-   
+        <br><br>
+          
+            <h1  class="threeD">{{annonce.infoPersonnel.Nom}}  {{annonce.infoPersonnel.Prenom}}</h1><br><br>
             <div class="w3-container">
               <h5 class="w3-opacity"><b>{{annonce.infoPersonnel.profil}}</b></h5>
               
@@ -106,14 +108,14 @@ html,body,h1,h2,h3,h4,h5,h6 {
         <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Experiences</h2>
         <div class="w3-container">
           <div *ngFor="let info of dataArray">
-                <div *ngIf="Uid===info.UidCan">
+                <div *ngIf="Uid===info.UidCan  || keyParams===info.UidCan">
             
                   <div *ngFor="let in of info.Experiences.experiences">
-                
+            
           <h5 class="w3-opacity" class="nM" ><b>{{in.NomEntreprise}} / {{in.Emploi}} </b></h5>
-          <p class="emp">{{in.Emploi}}</p>
+         
           <h6 class="w3-text-teal" class="mois"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Durée:{{in.NMois}}mois</h6>
-          
+         
           <hr>
         </div>
     </div>
@@ -126,14 +128,14 @@ html,body,h1,h2,h3,h4,h5,h6 {
         <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
         <div class="w3-container">
           <div *ngFor="let info of dataArray">
-            <div *ngIf="Uid===info.UidCan">
+            <div *ngIf="Uid===info.UidCan  || keyParams===info.UidCan">
         
               <div *ngFor="let in of info.Education.educations">
           <h5 class="w3-opacity"  class="nM"><b>{{in.Diplome}} / {{in.Ecole}} </b></h5>
-        
-          <p>{{in.Diplome}}</p><h6 class="w3-text-teal"class="mois"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{in.Annee}}</h6>
-          
           <p>Mention {{in.Mention}}</p>
+          <h6 class="w3-text-teal"class="mois"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{in.Annee}}</h6>
+          
+         
           <hr>
 
           <!-- <button (click)="afficher()"></button> -->

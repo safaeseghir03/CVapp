@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 import { AuthentificationService } from 'src/app/services/authentification-service.service';
 
@@ -13,7 +14,7 @@ dataArray:any
 Uid:any;
 CvArray:any;
   dataArray2:any
-  constructor(private fs : AngularFirestore,private as:AuthentificationService) {
+  constructor(private fs : AngularFirestore,private as:AuthentificationService,private route:Router) {
    this.as.User.subscribe(user=>{
      this.Uid=user.uid
    })
@@ -79,12 +80,16 @@ CvArray:any;
 
 
 
+
   }
 
 
 
 
-
+ voirCv(UidC:any){
+    console.log(UidC)
+this.route.navigate(['/Cv/'+UidC])
+  }
 
 
 

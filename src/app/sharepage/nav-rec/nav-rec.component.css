@@ -51,7 +51,8 @@ li a {
 }
 #impo4{
     position: absolute;
-    right: 3%; 
+    right: 5%; 
+    bottom: 5%;
 } 
 #impo5{
     position: absolute;
@@ -69,6 +70,7 @@ li a {
 .hov:hover{
     
     color: purple;
-    font-size: 20px;
+
     /* border-radius: 10px 100px / 120px */
+
 }

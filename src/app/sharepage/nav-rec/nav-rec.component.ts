@@ -30,4 +30,8 @@ export class NavRecComponent implements OnInit {
     return this.route.navigate(["/ManageC"]);
   }
 
+
+  gotoAnnonce(){
+    return this.route.navigate(["/page-recruteur"]);
+  }
 }

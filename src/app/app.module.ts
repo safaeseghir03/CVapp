@@ -18,7 +18,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
-
+import {MatMenuModule} from '@angular/material/menu'
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { HotToastModule } from '@ngneat/hot-toast';
@@ -44,6 +44,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { CorRComponent } from './pages/cor-r/cor-r.component';
 import { ManageCandidatComponent } from './container/manage-candidat/manage-candidat.component';
 import { CVComponent } from './container/cv/cv.component';
+import { Page404Component } from './page404/page404.component';
 
 
 
@@ -69,6 +70,7 @@ import { CVComponent } from './container/cv/cv.component';
     CorRComponent,
     ManageCandidatComponent,
     CVComponent,
+    Page404Component,
     
     
   ],
@@ -87,6 +89,7 @@ import { CVComponent } from './container/cv/cv.component';
     MatInputModule,
     MatSliderModule,
     MatSelectModule,
+    MatMenuModule,
      // 3. Initialize
      AngularFireModule.initializeApp(environment.firebase),
      AngularFirestoreModule, // firestore

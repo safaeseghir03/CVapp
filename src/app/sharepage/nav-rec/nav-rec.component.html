@@ -9,19 +9,21 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               
+             
+             
               <li class="nav-item">
-                <a class="nav-link" class="hov" id="impo2" routerLinkActive="active-link" >  Mes annonces    </a>
+                <a class="nav-link" class="hov" (click)="goToManageC()" id="impo3" routerLinkActive="active-link" >  Les Candidats    </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link"  class="hov" id="impo3" (click)=" goCreatoAnnonce()"   routerLinkActive="active-link">+ Annonce</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" class="hov" (click)="goToManageC()" id="impo5" routerLinkActive="active-link" >  Les Candidats    </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link"  class="hov" id="impo4" (click)="logout()" routerLinkActive="active-link">Déconnecter</a>
-              </li>
+             
               
+              <li class="nav-item">
+                
+                <button class="hov" id="impo4" mat-button [matMenuTriggerFor]="userMenu">
+                  <mat-icon>account_circle</mat-icon>
+                  safae
+                  <mat-icon>expand_more</mat-icon>
+                </button>
+              </li> 
               
             </ul>
           </div>
@@ -29,3 +31,9 @@
       </nav>
       
     </div>
+    <mat-menu #userMenu="matMenu">
+      <button mat-menu-item (click)=" gotoAnnonce()" >Mes annonces</button>
+      <button mat-menu-item (click)=" goCreatoAnnonce()" >+ Annonce</button>
+      <button mat-menu-item (click)="logout()">Déconnexion</button>
+      
+    </mat-menu>

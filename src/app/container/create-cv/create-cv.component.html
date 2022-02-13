@@ -173,8 +173,15 @@
                 <div class="form-group">
                   <mat-form-field appearance="fill">
                     <input matInput type="number" formControlName="NMois" placeholder="Expérience en mois">
-                 </mat-form-field>         
+                 </mat-form-field>       
                 </div>
+              </div>
+
+              
+              <div class="form-group">
+                  <mat-form-field appearance="fill">
+                    <textarea matInput type="number" formControlName="DescEntr" placeholder="Description sur votre experience"></textarea>
+                  </mat-form-field>
               </div>
             
             <div class="col-md-3">
@@ -303,20 +310,16 @@
   <div class="form-group">
     <label class="h4 mb-3"  for="file">Ajouter une photo à votre CV</label>
     <input type="file" accept=".jpg,.png"  (change)="uploadImage($event)" class="form-control-file" >
-    <button mat-raised-button (click)="show()"   color="primary">show</button> 
-
+   
   </div>
   <div *ngIf="percentages | async as pct">
     <div *ngIf="pct == 100" class="alert alert-success">votre photo est ajouté avec succés</div>
   <progress id="js-progressbar" [value]="pct" max="100"></progress>
+</div>
 </div><br/><br/><br/>
-<div class="shadow-sm card action-buttons">
-<button mat-raised-button (click)="CVsubmit()"  color="primary">Enregistrer Votre CV</button> </div>
 
+<button mat-raised-button (click)="CVsubmit($event)"  color="primary">Enregistrer Votre CV</button> <br><br>
 <button mat-raised-button (click)="GoToCV()"   color="primary">Voir Votre CV</button> 
-
-
-
 
 <!-- 
   
@@ -335,7 +338,8 @@
   <button class="btn btn-primary d-flex align-items-center justify-content-center">
     <span>Télecharger PDF</span></button>
   </div><br/> -->
-</div>
+
+
 
 
 

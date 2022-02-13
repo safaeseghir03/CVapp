@@ -10,29 +10,27 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
           
-           <li class="nav-item">
+           <!-- <li class="nav-item">
                 <a class="nav-link" class="hov" id="impo2" routerLinkActive="active-link" >  Annonces    </a>
               </li> 
               
               <li class="nav-item">
                 <a class="nav-link"  class="hov" id="impo3" routerLinkActive="active-link" (click)=" goCreatoCV()"> Mon CV</a>
-              </li> 
+              </li>  -->
               
-              <li class="nav-item">
-                <div class="dropdown">
-                  <a class="btn btn-secondary dropdown-toggle"  role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown link
-                  </a>
-                
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                  </ul>
-                </div>
-              </li> 
+<!--             
               <li class="nav-item">
                 <a class="nav-link"  class="hov" id="impo4" (click)="logout()" routerLinkActive="active-link">Déconnecter</a>
+              </li>  -->
+
+
+              <li class="nav-item">
+                
+                <button class="hov" id="impo4" mat-button [matMenuTriggerFor]="userMenu">
+                  <mat-icon>account_circle</mat-icon>
+                  {{Nom}}
+                  <mat-icon>expand_more</mat-icon>
+                </button>
               </li> 
               
             </ul>
@@ -41,3 +39,10 @@
       </nav>
       
     </div>
+    <mat-menu #userMenu="matMenu">
+      <button mat-menu-item (click)="gotoCV()" >Mon CV</button>
+      <button mat-menu-item (click)="goCreatoCV()">Nouveau CV</button>
+      <button mat-menu-item (click)="logout()">Déconnexion</button>
+      
+
+    </mat-menu>
