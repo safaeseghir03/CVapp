@@ -177,13 +177,13 @@
                 </div>
               </div>
 
-              
+              <div class="col-md-3">
               <div class="form-group">
                   <mat-form-field appearance="fill">
                     <textarea matInput type="number" formControlName="DescEntr" placeholder="Description sur votre experience"></textarea>
                   </mat-form-field>
               </div>
-            
+            </div>
             <div class="col-md-3">
                 <div class="form-group">
                   <mat-icon class="delete-btn" (click)="removeExperience(i)"> delete_forever</mat-icon>       
@@ -231,7 +231,14 @@
               <div class="col-md-3">
                 <div class="form-group">
                   <mat-form-field appearance="fill">
-                    <input matInput type="number" formControlName="Annee" placeholder="Année">
+                    <input matInput type="number" formControlName="Annee" placeholder="Année de debut">
+                 </mat-form-field>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <mat-form-field appearance="fill">
+                    <input matInput type="number" formControlName="AnneeF" placeholder="Année de fin">
                  </mat-form-field>
                 </div>
               </div>
@@ -318,8 +325,8 @@
 </div>
 </div><br/><br/><br/>
 
-<button mat-raised-button (click)="CVsubmit($event)"  color="primary">Enregistrer Votre CV</button> <br><br>
-<button mat-raised-button (click)="GoToCV()"   color="primary">Voir Votre CV</button> 
+<button mat-raised-button (click)="CVsubmit()"  color="primary">Enregistrer Votre CV            <i class="bi bi-save"></i></button> <br><br>
+<button mat-raised-button (click)="GoToCV()"   color="primary">Voir Votre CV                     <i class="bi bi-eye"></i></button> 
 
 
 <!-- 

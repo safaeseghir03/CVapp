@@ -13,6 +13,7 @@ export class NavRecComponent implements OnInit {
   Uid:any
   dataArray:any
   Nom:any
+  PhotoURL:any
   constructor(private fs :AngularFirestore,private route : Router, private fa :AngularFireAuth,private as:AuthentificationService) {
     
     this.as.User.subscribe(user=>{
@@ -27,10 +28,10 @@ export class NavRecComponent implements OnInit {
       console.log("User is signed in.") 
       // var uidC=this.Uid
       // console.log(uidC)
-      const docref =this.fs.collection("Candidats").doc(this.Uid);
+      const docref =this.fs.collection("Recruteurs").doc(this.Uid);
       docref.get().subscribe(doc=>{
         this.Nom=doc.get('Nom')
-    
+        this. PhotoURL=doc.get('photoURL')
       })
     } else {
       console.log(" No user is signed in.")
@@ -47,7 +48,9 @@ export class NavRecComponent implements OnInit {
       console.log("error")
     })
   }
-  
+  gotoprofile(){
+    return this.route.navigate(["/profile"]);
+  }
   goCreatoAnnonce(){
     return this.route.navigate(["/create-annonce"]);
   } 

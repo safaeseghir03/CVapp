@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./manage-candidat.component.css']
 })
 export class ManageCandidatComponent implements OnInit {
+  nodata:any
+  
   searchForm= new FormGroup({
     profil:new FormControl('',Validators.required),
     Addresse:new FormControl('',Validators.required),
@@ -28,6 +30,7 @@ export class ManageCandidatComponent implements OnInit {
 
 
   chercher(){
+    this.nodata=true;
     let data =this.searchForm.value;
      this.Adresse=data.Addresse;
     this.profile=data.profil

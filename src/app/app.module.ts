@@ -45,6 +45,8 @@ import { CorRComponent } from './pages/cor-r/cor-r.component';
 import { ManageCandidatComponent } from './container/manage-candidat/manage-candidat.component';
 import { CVComponent } from './container/cv/cv.component';
 import { Page404Component } from './container/page404/page404.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ProfileCComponent } from './profile-c/profile-c.component';
 
 
 
@@ -70,6 +72,8 @@ import { Page404Component } from './container/page404/page404.component';
     ManageCandidatComponent,
     CVComponent,
     Page404Component,
+    ProfileComponent,
+    ProfileCComponent,
     
     
     

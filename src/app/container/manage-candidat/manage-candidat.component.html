@@ -20,8 +20,9 @@
 <div *ngFor="let candidat of dataArray">
  <div *ngIf="profile===candidat.infoPersonnel.profil"><br/> 
      <h1>Résultat pour {{candidat.infoPersonnel.profil}} :</h1>
-<div class="bottom" >
+<div class="bottom" [nodata]="false">
     <div class="container mt-5">
+        
         <div class="row d-flex justify-content-center">
             <div class="col-md-7">
                 <div class="card p-3 py-4">
@@ -41,3 +42,17 @@
 </div>
 </div>
 </div>
+
+
+
+
+
+
+<div *ngIf="nodata===true">
+   
+    <br>
+    <h1>Résultat pour {{profile}} :</h1>
+    
+    <img id="img" src="../../../assets/img/nof2.jpg">
+    
+          </div>

@@ -17,4 +17,7 @@ button span{
 .action-buttons button{
     margin : 5px;
 }
+progress{
+    width:350px;
+}
 /*//////////////////////////////////////////////////*/

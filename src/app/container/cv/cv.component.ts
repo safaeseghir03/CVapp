@@ -1,15 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild,ElementRef } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
 import * as firebase from 'firebase';
 import { AuthentificationService } from 'src/app/services/authentification-service.service';
 import {Router} from '@angular/router';
+import {jsPDF} from "jspdf";
+
+
 @Component({
   selector: 'app-cv',
   templateUrl: './cv.component.html',
   styleUrls: ['./cv.component.css']
 })
+
+
 export class CVComponent implements OnInit {
+
+  @ViewChild('content',{static: false}) el!:ElementRef;
+  
+  
   dataArray:any
   Uid:any
   keyParams:any
@@ -59,7 +68,7 @@ export class CVComponent implements OnInit {
     })
      
     }else{
-      return this.route.navigate(["/create-cv"]);
+      return this.route.navigate(["/page404"]);
      
     }
   })
@@ -91,6 +100,14 @@ export class CVComponent implements OnInit {
   }
 
 
-
+  telecharger(){
+    let pdf =new jsPDF('p','pt','a2');
+    pdf.html(this.el.nativeElement,{
+      callback:(pdf)=>{
+        pdf.save("demo.pdf")
+      }
+    });
+   
+  }
 
 }

@@ -19,7 +19,9 @@
               <li class="nav-item">
                 
                 <button class="hov" id="impo4" mat-button [matMenuTriggerFor]="userMenu">
-                  <mat-icon>account_circle</mat-icon>
+                  <!-- <mat-icon>account_circle</mat-icon>
+                  {{Nom}} -->
+                  <img class="profile-image-toolbar" width="30" height="30" [src]="PhotoURL ?? 'assets/img/imageplch.jpg'">
                   {{Nom}}
                   <mat-icon>expand_more</mat-icon>
                 </button>
@@ -32,6 +34,7 @@
       
     </div>
     <mat-menu #userMenu="matMenu">
+      <button mat-menu-item (click)=" gotoprofile()" >Mon profile</button>
       <button mat-menu-item (click)=" gotoAnnonce()" >Mes annonces</button>
       <button mat-menu-item (click)=" goCreatoAnnonce()" >+ Annonce</button>
       <button mat-menu-item (click)="logout()">Déconnexion</button>

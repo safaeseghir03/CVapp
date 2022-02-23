@@ -15,6 +15,8 @@ export class PageCandidatComponent implements OnInit {
   successMessage:any;
   dataArray2:any;
   TableCv:any;
+  PhotoURL:any
+  Nom:any
   constructor(private fs :AngularFirestore,private as: AuthentificationService, private router: Router, private toast: HotToastService) { }
 
   ngOnInit(): void {
@@ -25,7 +27,7 @@ export class PageCandidatComponent implements OnInit {
     } else {
       // No user is signed in.
     }
-
+   
     
     this.fs.collection("Annonces").snapshotChanges().subscribe((data)=>{
       this.dataArray= data.map((element:any) => {
@@ -36,13 +38,26 @@ export class PageCandidatComponent implements OnInit {
           NomEntreprise:element.payload.doc.data()['NomEntreprise'],
           Description:element.payload.doc.data()['Description'],
           image:element.payload.doc.data()['image'],
+          uidRec:element.payload.doc.data()['UidRec'],
+        
         }
 
       })
     })
 
    
-   
+    // const docref =this.fs.collection("Recruteurs").doc(this.dataArray.get('uidRec'));
+    // docref.get().subscribe(Rec=>{
+    // if(Rec.exists){
+
+    //   this. PhotoURL=Rec.get('photoURL')
+    // this.Nom=Rec.get('Nom')
+     
+    // }else{
+    //   console.log("error photo")
+     
+    // }
+    // })
 
   }
 

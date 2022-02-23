@@ -13,6 +13,7 @@ export class NavcanComponent implements OnInit {
   Uid:any
   dataArray:any
   Nom:any
+  PhotoURL:any
   constructor(private fs :AngularFirestore,private route : Router, private fa :AngularFireAuth,private as:AuthentificationService) { 
     
     this.as.User.subscribe(user=>{
@@ -32,6 +33,7 @@ export class NavcanComponent implements OnInit {
       const docref =this.fs.collection("Candidats").doc(this.Uid);
       docref.get().subscribe(doc=>{
         this.Nom=doc.get('Nom')
+        this. PhotoURL=doc.get('photoURL')
     
       })
     } else {
@@ -43,6 +45,12 @@ export class NavcanComponent implements OnInit {
    
     //console.log(this.Uid)
     
+  }
+  gotoprofileC(){
+    return this.route.navigate(["/profileC"]);
+  }
+  gotopagecan(){
+    return this.route.navigate(["/page-candidat"]);
   }
   gotoCV(){
     return this.route.navigate(["/Cv"]);

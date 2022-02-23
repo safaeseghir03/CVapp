@@ -13,7 +13,8 @@ export class PageRecruteurComponent implements OnInit {
 dataArray:any
 Uid:any;
 CvArray:any;
-  dataArray2:any
+  dataArray2:any;
+nodata:any;
   constructor(private fs : AngularFirestore,private as:AuthentificationService,private route:Router) {
    this.as.User.subscribe(user=>{
      this.Uid=user.uid
@@ -48,11 +49,25 @@ CvArray:any;
    
   }
   
+
+  delete(annonceid:any){
+    if(window.confirm('voulez vous vraiment supprimer cette annonce?')) {
+      console.log("Implement delete functionality here");
+   
+    this.fs.collection("Annonces").doc(annonceid).delete().then(() => {
+      console.log("Document successfully deleted!");
+  }).catch((error) => {
+      console.error("Error removing document: ", error);
+  });
   
+  }
+
+
+   }
 
 
   candidatures(annonceid:any){
-
+this.nodata=true;
   console.log(annonceid)
 
  

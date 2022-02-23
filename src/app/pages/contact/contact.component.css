@@ -92,6 +92,7 @@ body {
   color: #000; }
  */
 .img {
+  
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center; }
@@ -155,9 +156,9 @@ textarea.form-control {
       transition: none; } }
  
   .btn.btn-primary {
-    background: pink !important;
+    background: rgb(142, 19, 199) !important;
     border-color: pink !important;
-    color: black; }
+    color: white; }
     .btn.btn-primary:hover, .btn.btn-primary:focus {
       border-color: pink !important;
       background: hotpink!important; }

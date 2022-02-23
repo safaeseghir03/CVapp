@@ -11,7 +11,7 @@ import { from, Observable } from 'rxjs';
 
 export class AuthentificationService {
   
-// User:Observable<any>
+  // User:Observable<any>
 User:Observable<any>
  userUid : any;
   constructor(private auth : AngularFireAuth) { 

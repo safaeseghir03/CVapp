@@ -48,7 +48,7 @@ p {
 
 .card {
     width: 435px;
-    height: 500px;
+    height: 550px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     background: #fff;
     transition: all 0.5s ease;
@@ -151,7 +151,7 @@ p {
 }
 
 .card:hover .text-muted {
-    color: #fff !important
+    color:#fff !important
 }
 
 .card .content {
@@ -173,4 +173,27 @@ p {
     background: #fff;
     color: #1b9ce3;
     box-shadow: #0000001a 0px 3px 5px
+}
+
+
+mat-icon {
+    opacity: 0.5;
+    padding-right: 0.5em;
+}
+
+span{
+    position: absolute;
+    right:2%;
+}    
+span:hover{
+    border-radius: 100%;
+    background-color: rgb(221, 133, 221);
+
+   color: #fff;
+}
+#header{
+    height: 30px;
+    color:purple;
+    font-weight: bold;
+    font-size: 20px;
 }

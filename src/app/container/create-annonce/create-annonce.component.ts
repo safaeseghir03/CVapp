@@ -25,10 +25,13 @@ successMessage:any;
 
  ngOnInit(): void {
   }
-  
+  disabel(event:any){
+    event.currentTarget.disabled = true
+    event.target.disabled = true;
+  }
   
   addAnnonce(f:any){
-
+    
     var user = firebase.auth().currentUser;
     if (user) {
       this.Uid=user.uid;

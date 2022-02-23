@@ -18,3 +18,16 @@ h1{
     font-size: 40px;
     background-color: white;
 }
+
+
+
+
+#img{
+    align-items: center;
+    height:300px;
+    width: 500px;
+    position: absolute;
+   left:30%;
+    
+}
+        

@@ -112,6 +112,7 @@ export class SignupRecruteurComponent implements OnInit {
   }).catch(() => {
     console.log("error")
   })
+  
   }
 
 

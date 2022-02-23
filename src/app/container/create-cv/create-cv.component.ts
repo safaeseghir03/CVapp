@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { AbstractControl,FormArray,FormBuilder,FormControl,FormGroup,ValidationErrors,ValidatorFn,Validators} from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
@@ -7,7 +7,7 @@ import * as firebase from 'firebase';
 
 import { AuthentificationService } from 'src/app/services/authentification-service.service';
 import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from '@angular/fire/storage';
-
+import {jsPDF} from "jspdf"
 @Component({
   selector: 'app-create-cv',
   templateUrl: './create-cv.component.html',
@@ -71,6 +71,7 @@ form=this.fb.group({
          Diplome:[''],
          Ecole:[''],
          Annee:[''],
+         AnneeF:[''],
          Mention:['']
        })
      ])
@@ -202,6 +203,7 @@ form=this.fb.group({
 
 ////////////////////////Experiences///////////////////////////
 
+
 expSubmit(){
   var user = firebase.auth().currentUser;
   if (user) {
@@ -213,19 +215,19 @@ expSubmit(){
   let data =this.experiencesForm.value;
   console.warn(data);
   
-  this.fs.collection("CVExperiences").add({
-    // NomEntrprise:data.NomEntreprise,
-    // TypeEmploi:data.Emploi,
-    // NombreMois:data.NMois,
-    CompetencC:data,
-    UidCan:this.Uid
+//   this.fs.collection("CVExperiences").add({
+//     // NomEntrprise:data.NomEntreprise,
+//     // TypeEmploi:data.Emploi,
+//     // NombreMois:data.NMois,
+//     CompetencC:data,
+//     UidCan:this.Uid
 
-  }).then(()=>{
-    this.successMessage='succés!!';
-  })
-.catch(() => {
-  console.log("error")
-})
+//   }).then(()=>{
+//     this.successMessage='succés!!';
+//   })
+// .catch(() => {
+//   console.log("error")
+// })
 }
 
 get experiences(){
@@ -267,6 +269,7 @@ addEducation(){
     Diplome:[''],
     Ecole:[''],
     Annee:[''],
+    AnneeF:[''],
     Mention:['']
   
   })
@@ -310,9 +313,9 @@ removeLangue(i:number){
 
 
 /////////////////////////////////////////////////////////
-CVsubmit(event: any){
-  event.currentTarget.disabled = true
-  event.target.disabled = true;
+CVsubmit(){
+  // event.currentTarget.disabled = true
+  // event.target.disabled = true;
   var user = firebase.auth().currentUser;
     if (user) {
       this.Uid=user.uid;
@@ -325,21 +328,8 @@ CVsubmit(event: any){
   let dataskills=this.SkillsForm.value;
   let dataeduc=this.educationForm.value;
   let datalang=this.languagesForm.value;
-//   this.fs.collection("CV").add({
-//     infoPersonnel:datainfoper,
-//     Experiences:dataexp,
-//     Competences:dataskills,
-//     Education:dataeduc,
-//     Langues:datalang,
-//     UidCan:this.Uid
-    
-//   }).then(()=>{
-//     this.successMessage='votre annonce a été ajouté avec succés!!';
-//   })
-// .catch(() => {
-//   console.log("error")
-// })
-
+console.log(this.Url)
+console.log(this.Uid)
 this.fs.collection("CV").doc(this.Uid).set({
       infoPersonnel:datainfoper,
       Experiences:dataexp,
@@ -357,10 +347,40 @@ this.fs.collection("CV").doc(this.Uid).set({
     console.log("error")
   })
 
+
+//     this.fs.collection("CV").add({
+//     infoPersonnel:datainfoper,
+//     Experiences:dataexp,
+//     Competences:dataskills,
+//     Education:dataeduc,
+//     Langues:datalang,
+    
+//     UidCan:this.Uid
+    
+//   }).then(()=>{
+//     this.successMessage='votre annonce a été ajouté avec succés!!';
+//   })
+// .catch(() => {
+//   console.log("error")
+// })
+
 }
 
 
 uploadImage(event:any){
+
+
+const id =Math.random().toString(36).substring(2);
+this.ref = this.fst.ref(id);
+this.task = this.ref.put(event.target.files[0]);
+this.percentages=this.task.percentageChanges()
+this.task.then((data)=>{
+  data.ref.getDownloadURL().then(url=>{
+  this.Url=url
+  
+})
+
+})
 //  const id =Math.random().toString(36).substring(2)
 //   const file = event.target.files[0]
 //   const task = this.fst.upload(id, file);
@@ -373,17 +393,6 @@ uploadImage(event:any){
 //           console.log(this.Url)
 //     })
 //   }) 
-const id =Math.random().toString(36).substring(2);
-this.ref = this.fst.ref(id);
-this.task = this.ref.put(event.target.files[0]);
-this.percentages=this.task.percentageChanges()
-this.task.then((data)=>{
-  data.ref.getDownloadURL().then(url=>{
-  this.Url=url
-  
-})
-
-})
 
   }
   
@@ -393,7 +402,11 @@ GoToCV(){
 
 
 
-
+// telecharger(){
+// let pdf =new jsPDF();
+// pdf.text("hello everyone",10,10);
+// pdf.save();
+// }
 
 
 

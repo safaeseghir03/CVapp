@@ -17,11 +17,21 @@
               <p class="text-muted mt-3">{{annonce.Description}}</p>
               <div class="d-flex align-items-center justify-content-between mt-3 pb-3">
                   
-                  <button class="btn btn-success"  (click)="candidatures(annonce.id)">Les candidatures</button>
-
+                  <button class="btn btn-primary"  (click)="candidatures(annonce.id)">Les candidatures</button>
+                  
+                  <button class="btn btn-danger"  (click)="delete(annonce.id)"><i class="bi bi-trash"></i></button>
+                
               </div>
+              <!-- <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+                <mat-icon>delete</mat-icon>
+              </button> -->
+
+
           </div></div></div>
       </div>
+
+     
+             
     </div>   
   </div></div><br/>
 
@@ -39,7 +49,7 @@
         
          
            
-                   <div class="col-md-7">
+                   <div class="col-md-7" nodata="false">
                        <div class="card p-3 py-4">
                            <div class="text-center"> <img [src]="candidat.photoP" width="100" class="rounded-circle"> </div>
                            <div class="text-center mt-3"> <span class="bg-secondary p-1 px-4 rounded text-white">Pro</span><br/><br/>
@@ -47,10 +57,13 @@
                                <div class="px-4 mt-1"><br/>
                                    <p class="fonts">{{candidat.infoPersonnel.CDesc}} </p>
                                </div><br/><br/><br/>
-                               
-                               <div class="buttons"> <button class="btn btn-outline-primary px-4" (click)="voirCv(candidat.UidCan)">Voir le CV</button> </div>
-                           </div>
+                             
+                               <div class="buttons"> 
+                                 <button class="btn btn-outline-primary px-4" (click)="voirCv(candidat.UidCan)">Voir le CV</button>
+                                 
+                                </div>
                            
+                              </div>
                        </div>
                    </div>
                </div>
@@ -61,5 +74,12 @@
        </div>
   
       </div>
+      <div *ngIf="nodata===true">
+      
+<br>
+<img id="img" src="../../../assets/img/nof2.jpg">
+
+      </div>
+    
     </div>
     

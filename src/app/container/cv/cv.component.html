@@ -14,7 +14,7 @@ html,body,h1,h2,h3,h4,h5,h6 {
 <body class="w3-light-grey">
 
 <!-- Page Container -->
-<div class="w3-content w3-margin-top" style="max-width:1400px;">
+<div class="w3-content w3-margin-top" id="content"  style="max-width:1400px;" #content>
 
   <!-- The Grid -->
   <div class="w3-row-padding">
@@ -79,11 +79,13 @@ html,body,h1,h2,h3,h4,h5,h6 {
           <br>
         </div>
       </div><br>
-   
+      <button mat-raised-button (click)="telecharger()" class="bg-success text-white"><i class="bi bi-download"></i></button> 
+
     <!-- End Left Column -->
     </div>
 
     <!-- Right Column -->
+    
     <div class="w3-twothird">
     
         <div *ngFor="let annonce of dataArray">
@@ -93,6 +95,7 @@ html,body,h1,h2,h3,h4,h5,h6 {
         <br><br>
           
             <h1  class="threeD">{{annonce.infoPersonnel.Nom}}  {{annonce.infoPersonnel.Prenom}}</h1><br><br>
+            <br><br>
             <div class="w3-container">
               <h5 class="w3-opacity"><b>{{annonce.infoPersonnel.profil}}</b></h5>
               
@@ -113,9 +116,9 @@ html,body,h1,h2,h3,h4,h5,h6 {
                   <div *ngFor="let in of info.Experiences.experiences">
             
           <h5 class="w3-opacity" class="nM" ><b>{{in.NomEntreprise}} / {{in.Emploi}} </b></h5>
-         
+         <p>{{in.DescEntr}}</p>
           <h6 class="w3-text-teal" class="mois"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Durée:{{in.NMois}}mois</h6>
-         
+          <br/>
           <hr>
         </div>
     </div>
@@ -133,9 +136,9 @@ html,body,h1,h2,h3,h4,h5,h6 {
               <div *ngFor="let in of info.Education.educations">
           <h5 class="w3-opacity"  class="nM"><b>{{in.Diplome}} / {{in.Ecole}} </b></h5>
           <p>Mention {{in.Mention}}</p>
-          <h6 class="w3-text-teal"class="mois"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{in.Annee}}</h6>
+          <h6 class="w3-text-teal"class="mois"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{in.Annee}} - {{in.AnneeF}}</h6>
           
-         
+         <br/>
           <hr>
 
           <!-- <button (click)="afficher()"></button> -->

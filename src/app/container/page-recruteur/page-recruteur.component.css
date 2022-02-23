@@ -62,11 +62,18 @@ h1{
 
 
 
-
-
-
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+
+
+.noData >*{
+    display: none;  
+  }
+  .noData:before{
+    content: attr(no-data-title);
+  }
+
 
 * {
     padding: 0;
@@ -209,11 +216,12 @@ p {
     align-items: center;
     justify-content: center;
     padding: 5px 10px;
-    background-color: #1b9ce3;
+    /* background-color: #1b9ce3; */
     border-radius: 25px;
     font-size: 18px;
     
 }
+
 
 .card:hover .content .btn {
     background: #fff;
@@ -238,5 +246,16 @@ p{
 }
 .buttons{
    font-size: 20px;
+}
+
+
+
+#img{
+    align-items: center;
+    height:300px;
+    width: 500px;
+    position: absolute;
+   left:30%;
+    
 }
         
