@@ -18,6 +18,7 @@ import { CVComponent } from './container/cv/cv.component';
 import { Page404Component } from './container/page404/page404.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileCComponent } from './profile-c/profile-c.component';
+import { ProfilercComponent } from './profilerc/profilerc.component';
 
 
 const routes: Routes = [
@@ -38,6 +39,7 @@ const routes: Routes = [
   {path:'Cv/:id',component: CVComponent},
   {path:'Cv',component: CVComponent},
   {path:'page404',component: Page404Component},
+  {path:'profilerc/:id',component:  ProfilercComponent},
   {path:'profile',component: ProfileComponent},
   {path:'profileC',component: ProfileCComponent},
 ];

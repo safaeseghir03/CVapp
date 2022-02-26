@@ -1,25 +1,35 @@
 .top{
-    background-image: url('../../../assets/img/manageC.jpg');
-    height:400px;
+    background-image: url('../../../assets/img/mana.jpg');
+    height:450px;
     background-position: center top;
     background-size: cover;
  }
 table{
     position: absolute;
-    top:40%;
-    left:20%
+    top:47%;
+    left:35%
 }
 #profile{
-    width: 500px;
+    width: 350px;
+    position:relative;
+    left: 90%;
+}
+#search{
+    position:relative;
+    left: 80%;
+
 }
 h1{
     font-weight: bold;
     color:rgb(202, 53, 202);
     font-size: 40px;
-    background-color: white;
+    position:relative;
+    left: 40%;
 }
 
-
+.search{
+     background-color: purple;
+}
 
 
 #img{

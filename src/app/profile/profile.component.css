@@ -49,3 +49,8 @@ button{
     bottom:5px;
     right:115px;
 }
+h1{
+    color:rgb(175, 44, 175);
+    font-style: italic;
+    font-weight: bold;
+}

@@ -18,6 +18,9 @@ PhotoURL:any
   ref:AngularFireStorageReference;
   Url:any;
   percentages:any;
+  Nom:any;
+  NomEntreprise:any;
+  Profession:any
   user$ =this.authService.User
 constructor(private route :Router,private authService:AuthentificationService,private fs : AngularFirestore,private as: AuthentificationService, private router: Router, private toast: HotToastService, private fst : AngularFireStorage) { }
 
@@ -33,9 +36,10 @@ constructor(private route :Router,private authService:AuthentificationService,pr
 const docref =this.fs.collection("Recruteurs").doc(this.Uid);
 docref.get().subscribe(Rec=>{
 if(Rec.exists){
-  this. PhotoURL=Rec.get('photoURL')
-
- 
+  this. PhotoURL=Rec.get('photoURL'),
+  this.Nom=Rec.get('Nom'),
+  this.NomEntreprise=Rec.get('NomEntreprise'),
+  this.Profession=Rec.get('Profession')
 }else{
   console.log("error photo")
  
@@ -54,6 +58,9 @@ if(Rec.exists){
     this.task.then((data)=>{
       data.ref.getDownloadURL().then(url=>{
       this.Url=url
+      this.fs.collection("Recruteurs").doc(this.Uid).update({
+        photoURL: this.Url
+      })
       
     })
     
@@ -66,11 +73,8 @@ if(Rec.exists){
     } else {
       // No user is signed in.
     }
-    console.log(this.Uid)
-    console.log(this.Url)
-    this.fs.collection("Recruteurs").doc(this.Uid).update({
-      photoURL: this.Url
-    })
+    
+    
 
     // this.fs.collection("Recruteurs").doc(this.Uid).set({
     

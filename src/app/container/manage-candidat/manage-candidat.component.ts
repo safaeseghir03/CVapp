@@ -46,6 +46,16 @@ export class ManageCandidatComponent implements OnInit {
 
       })
     })
+
+
+    if (this.dataArray == null) {
+      this.nodata=false;
+  }
+
+  
+  if (typeof this.dataArray === 'undefined') {
+    this.nodata=false;
+  }
   }
 
   voirCv(UidC:any){

@@ -1,17 +1,19 @@
 <app-nav-rec></app-nav-rec><br/><br/>
 
 <div class="top">
-    <br/><br/><br/>    <br/><br/><br/>
-    <h1>Trouve le candidat qui te correspond en repondant à ses questions :</h1>
+    <br/><br/><br/>    <br/><br/><br/><br/><br/>
+    <h1>Trouve le candidat qui vous correspond <br> selon son profile:</h1>
+    <br/><br/>
     <form [formGroup]="searchForm">
     <table>
         
            <tr>
            <td id="profile"> <input type="text" class="form-control" formControlName ="profil" placeholder=" son profile ?"></td>
    
-           <td > <input type="text" class="form-control" formControlName ="Addresse" placeholder="sa ville ?"></td>
-          
-           <td> <button type="submit" (click)="chercher()" class="btn btn-primary">Chercher</button></td>
+           <!-- <td > <input type="text" class="form-control" formControlName ="Addresse" placeholder="sa ville ?"></td>
+           -->
+       
+           <td id="search"> <button type="submit" (click)="chercher()" class="btn btn-primary" ><i class="bi bi-search"></i></button></td>
     
           </tr>
 

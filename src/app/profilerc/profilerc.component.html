@@ -1,0 +1,17 @@
+<app-navcan></app-navcan>
+<div class="form-container mat-elevation-z5 text-center" *ngIf="user$ | async as user">
+    <h1>profile du recruteur</h1>
+    <div class="profile-image">
+        <img width="120" height="120" [src]="PhotoURL ?? 'assets/img/imageplch.jpg'"/>
+        
+        <div><br>
+            <h2>{{Nom}}</h2>
+            <p><b>Nom d'entreprise: </b> {{NomEntreprise}}</p>
+            <p><b>Profession: </b> {{Profession}}</p>
+        </div>
+        <!-- <button mat-mini-fab (click)="inputField.click()">
+        <mat-icon>edit</mat-icon>
+    </button>
+    </div>
+    <input #inputField  type="file"  accept=".jpg,.png" hidden (change)="uploadImage($event)"> -->
+</div>

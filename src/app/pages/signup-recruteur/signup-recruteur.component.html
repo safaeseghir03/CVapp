@@ -41,6 +41,40 @@
         Le nom est obligatoire
       </mat-error>
     </mat-form-field>
+
+
+
+    <mat-form-field>
+      <input matInput name="nomEntreprise" placeholder="Nom d'entreprise" formControlName="nomEntreprise" />
+      <mat-error *ngIf="nomEntreprise?.errors?.['required']">
+        Le nom d'entreprise est obligatoire
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput name="profession" placeholder="votre profession" formControlName="profession" />
+      <mat-error *ngIf="profession?.errors?.['required']">
+        votre profession est obligatoire
+      </mat-error>
+    </mat-form-field>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <mat-form-field>
       <input matInput  name="email"  placeholder="Email" formControlName="email" />
       <mat-error *ngIf="email?.errors?.['required']">
@@ -50,6 +84,23 @@
         S'il vous plaît, saisissez une adresse email valide
       </mat-error>
     </mat-form-field>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <mat-form-field>
       <input
         matInput
@@ -77,6 +128,15 @@
     <mat-error *ngIf="signUpForm.errors?.['passwordsDontMatch']">
       Les mots de passe doivent correspondre
     </mat-error>
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="center margin-top">
       <button type="submit" mat-raised-button color="primary">S'inscrire!</button>
     </div>

@@ -17,7 +17,7 @@ export class PageCandidatComponent implements OnInit {
   TableCv:any;
   PhotoURL:any
   Nom:any
-  constructor(private fs :AngularFirestore,private as: AuthentificationService, private router: Router, private toast: HotToastService) { }
+  constructor(private route: Router ,private fs :AngularFirestore,private as: AuthentificationService, private router: Router, private toast: HotToastService) { }
 
   ngOnInit(): void {
     var user = firebase.auth().currentUser;
@@ -89,12 +89,14 @@ export class PageCandidatComponent implements OnInit {
   //         console.log("Error getting document:");
   //       }
 
-
+  goToProfile(uidRec:any){
+     
+      return this.route.navigate(['/profilerc/'+uidRec])
+  }
 
 
   addC(annonceid:any,event:any){
-  event.currentTarget.disabled = true
-  event.target.disabled = true;
+ 
 
   const docref =this.fs.collection("CvAnnonce").doc(annonceid);
   docref.get().subscribe(doc=>{
@@ -120,7 +122,8 @@ export class PageCandidatComponent implements OnInit {
   }
 })
 
-
+ event.currentTarget.disabled = true
+  event.target.disabled = true;
 
 console.log(annonceid)
 console.log(this.Uid)

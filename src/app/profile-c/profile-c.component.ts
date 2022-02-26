@@ -16,6 +16,7 @@ export class ProfileCComponent implements OnInit {
     task: AngularFireUploadTask;
     ref:AngularFireStorageReference;
     Url:any;
+    NomC:any
     percentages:any;
     user$ =this.authService.User
     constructor(private route :Router,private authService:AuthentificationService,private fs : AngularFirestore,private as: AuthentificationService, private router: Router, private toast: HotToastService, private fst : AngularFireStorage) { }
@@ -34,7 +35,9 @@ export class ProfileCComponent implements OnInit {
   const docref =this.fs.collection("Candidats").doc(this.Uid);
   docref.get().subscribe(Rec=>{
   if(Rec.exists){
-    this. PhotoURL=Rec.get('photoURL')
+    this. PhotoURL=Rec.get('photoURL'),
+    this.NomC=Rec.get('Nom')
+    
   
    
   }else{
@@ -55,7 +58,9 @@ export class ProfileCComponent implements OnInit {
       this.task.then((data)=>{
         data.ref.getDownloadURL().then(url=>{
         this.Url=url
-        
+        this.fs.collection("Candidats").doc(this.Uid).update({
+          photoURL: url
+        })
       })
       
       })
@@ -69,9 +74,7 @@ export class ProfileCComponent implements OnInit {
       }
       console.log(this.Uid)
       console.log(this.Url)
-      this.fs.collection("Candidats").doc(this.Uid).update({
-        photoURL: this.Url
-      })
+     
   
       // this.fs.collection("Recruteurs").doc(this.Uid).set({
       

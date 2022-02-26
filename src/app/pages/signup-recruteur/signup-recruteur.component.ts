@@ -68,6 +68,8 @@ export class SignupRecruteurComponent implements OnInit {
   signUpForm = new FormGroup(
     {
       name: new FormControl('', Validators.required),
+      profession: new FormControl('', Validators.required),
+      nomEntreprise: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', Validators.required),
       confirmPassword: new FormControl('', Validators.required),
@@ -94,6 +96,14 @@ export class SignupRecruteurComponent implements OnInit {
     return this.signUpForm.get('name');
   }
 
+  get nomEntreprise() {
+    return this.signUpForm.get('nomEntreprise');
+  }
+
+  get profession() {
+    return this.signUpForm.get('profession');
+  }
+
 
   Register(f:any){
     if (!this.signUpForm.valid) {
@@ -105,6 +115,8 @@ export class SignupRecruteurComponent implements OnInit {
     this.fs.collection("Recruteurs").doc(user.user.uid).set({
       Nom:data.name,
       Email:data.email,
+      NomEntreprise:data.nomEntreprise,
+      Profession:data.profession,
       Password:data.password
     }).then(()=>{
       this.route.navigate(["/login-recruteur"]);

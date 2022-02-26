@@ -47,6 +47,7 @@ import { CVComponent } from './container/cv/cv.component';
 import { Page404Component } from './container/page404/page404.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileCComponent } from './profile-c/profile-c.component';
+import { ProfilercComponent } from './profilerc/profilerc.component';
 
 
 
@@ -74,6 +75,7 @@ import { ProfileCComponent } from './profile-c/profile-c.component';
     Page404Component,
     ProfileComponent,
     ProfileCComponent,
+    ProfilercComponent,
     
     
     

@@ -25,7 +25,7 @@
           <div class="card border-0 me-lg-4 mb-lg-0 mb-5"*ngFor="let annonce of dataArray">
             <div id ="header" class="card-header">
               {{annonce.NomEntreprise}}
-              <span><i class="bi bi-three-dots"></i></span>
+              <button (click)="goToProfile(annonce.uidRec)"><i class="bi bi-person"></i></button>
             </div>
               <div class="backgroundEffect"></div>
               <div class="pic"> <img class="" [src]="annonce.image" alt="">
@@ -34,8 +34,8 @@
               <div class="content"><br/>
                  
                   <p class="text-muted mt-3">{{annonce.Description}}</p>
-                  <p class="text-muted mt-3">Pour le contact :{{annonce.Email}}</p>  
-                  <div class="d-flex align-items-center justify-content-between mt-3 pb-3">
+                  <p class="text-muted mt-3">Pour le contact :<b>      {{annonce.Email}}</b></p>  
+                  <div class="d-flex align-items-center justify-content-between mt-3 pb-3"><br><br>
                    
                     <button class="btn btn-success" (click)="addC(annonce.id,$event)">Déposer mon CV</button>
 
